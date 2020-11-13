@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InFILE | File Vault</title>
+    <style>
+        *{
+            outline: none;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .navbar{
+            list-style-type: none;
+        }
+        .navElem{
+            display: inline;
+            float: right;
+            padding: 5px;
+        }
+        .mainLogo{
+            color: red;
+            font: 40px Myanmar Text;
+            margin: 0;
+            padding: 0;
+        }
+        .btn{
+            color: white;
+            background-color: #B9A7FF;
+            width: 100px;
+            height: 40px;
+            border: solid 2px #B9A7FF;
+            border-radius: 10px;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar{
+            background-color: #7E86F5;
+            height: 50px;
+            margin: 0;
+            top: 0;
+            opacity: 40%;
+            position: fixed;
+            width: 97%;
+        }
+        .navbar:hover{
+            opacity: 100%;
+            cursor: crosshair;
+        }
+        .fileCard{
+            background-color: white;
+            width: 300px;
+            padding: 10px;
+            height: 250px;
+            margin: 10px;
+            text-align: center;
+            border: solid 2px white;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .fileCard:hover{
+            background-color: #ECF0F1;
+            border: solid 2px #ECF0F1;
+            cursor: pointer;
+        }
+        .fileName{
+            font: 20px Myanmar Text;
+            color: #A900FF;
+        }
+        .Files{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .extension{
+            background-color: #ECF0F1;
+            border: solid 2px #ECF0F1;
+            color: #3498DB;
+            height: 130px;
+            border-radius: 60px;
+            font: 30px Myanmar Text;
+        }
+        .buttonUpload{
+            background-color: #DCA1F1;
+            border: solid 2px #DCA1F1;
+            border-radius: 100%;
+            height: 50px;
+            width: 50px;
+            float: right;
+            bottom: 0;
+            right: 0;
+            position: fixed;
+            margin: 40px;
+        }
+        .buttonUpload:hover{
+            background-color: #BB00FE;
+            border: solid 2px #BB00FE;
+            cursor: pointer;
+        }
+        .uploadImg{
+            width: 35px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li class="navElem" style="float: left; padding: 0;"><span class="mainLogo">InFILE</span></li>
+        <li class="navElem"><button class="btn" onclick="location.href='http://127.0.0.1:4885/logOut'">LogOut</button></li>
+    </ul>
+    <br><br>
+    <div class="Files">
+        {% for file in all %}
+            <a class="fileCard" href={{'http://127.0.0.1:4885/uploads/' + file}} target="_blank" rel="noopener noreferrer">
+                <div class="extension">
+                    <p style="padding-top: 20px;">{{file[file.index('.'):]}}</p>
+                </div>
+                {% if '.undefined' in file %}
+                    <b><p class="fileName">{{file[:file.index('.')]}}</p></b>
+                {% else %}
+                    <b><p class="fileName">{{file}}</p></b>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+    <div class="buttonUpload">
+        <button class="buttonUpload" onclick="location.href='http://127.0.0.1:4885/uploadFile'"><img src='/static/plusRed.png' class="uploadImg"></button>
+    </div>
+</body>
+</html>

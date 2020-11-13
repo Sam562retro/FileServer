@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrong Login</title>
+    <style>
+        body{
+            font-family: Arial;
+            background-color: #3498DB;
+            padding: 50px;
+            padding:0px;
+            margin: 0px;
+        }
+
+        .container{
+            text-align: center;
+            background-color: white;
+            border: solid 2px white;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 20px;
+            margin-top: 180px;
+        }
+        .btn {
+                border: 2px solid transparent;
+                background: #3498DB;
+                color: #ffffff;
+                font-size: 16px;
+                line-height: 25px;
+                padding: 10px 0;
+                text-decoration: none;
+                text-shadow: none;
+                border-radius: 3px;
+                box-shadow: none;
+                transition: 0.25s;
+                display: block;
+                width: 250px;
+                margin: 0 auto;
+            }
+
+        .btn:hover {
+                background-color: #2980B9;
+                cursor: pointer;
+        }
+        .taskbar{
+            height: 70px;
+            width: 100%;
+            position: fixed;
+            background-color: white;
+            top: 0;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .taskbarList{
+            list-style-type: none;
+        }
+        li{
+            display: inline;
+        }
+        .taskbarBtn{
+            float: right;
+            margin-right: 10px;
+            text-align: center;
+            width: 200px;
+        }
+        *{
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+<h1>303 Error, No Login ID and Password Found!!!</h1>
+<h2>Please Try again</h2>
+<input type="button" onclick="location.href='http://127.0.0.1:4885/login'" value="Go To Login" class="btn">
+</div>
+</body>
+</html>
